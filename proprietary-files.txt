@@ -59,7 +59,6 @@ lib/libwrappergps.so
 vendor/lib/egl/libGLES_mali.so
 lib/egl/egl.cfg
 lib/egl/libGLES_android.so
-vendor/lib/libOpenCL.so
 
 # Media
 vendor/lib/libSEF.so
