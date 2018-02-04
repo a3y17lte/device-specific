@@ -65,3 +65,4 @@ persist.sys.usb.config=mtp
 
 # Wifi
 wifi.interface=wlan0
+net.tethering.noprovisioning=true
