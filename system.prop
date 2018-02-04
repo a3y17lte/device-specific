@@ -63,8 +63,6 @@ ro.multisim.simslotcount=2
 #Treble
 persist.media.treble_omx=false
 
-persist.sys.usb.config=mtp
-
 # sdcardfs
 ro.sys.sdcardfs=false
 
