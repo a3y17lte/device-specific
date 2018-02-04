@@ -59,6 +59,7 @@ vendor/firmware/fimc_is_lib.bin
 vendor/firmware/mfc_fw.bin
 
 # Mobicore
+bin/mcDriverDaemon|616bd552fbbd56bd05cfe3441e27de92565854fc
 app/FFFFFFFF000000000000000000000001.drbin
 app/mcRegistry/00060308060501020000000000000000.tlbin
 app/mcRegistry/07010000000000000000000000000000.tlbin
