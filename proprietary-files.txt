@@ -7,12 +7,7 @@ bin/prepare_param.sh
 vendor/firmware/bcm4343A0_V0071.0262.hcd
 vendor/firmware/bcm43438A1_V0062.0267.hcd
 vendor/lib/libbt-vendor.so
-etc/bluetooth/av_performance.conf
-etc/bluetooth/bt_did.conf
 etc/bluetooth/bt_stack.conf
-etc/bluetooth/iop_bt.db
-etc/bluetooth/iop_device_list.conf
-lib/libedmnativehelper.so
 
 # Camera
 lib/hw/camera.universal7870.so
