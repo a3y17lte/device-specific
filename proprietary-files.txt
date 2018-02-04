@@ -163,5 +163,3 @@ etc/wifi/bcmdhd_sta.bin
 etc/wifi/cred.conf
 etc/wifi/nvram_mfg.txt
 etc/wifi/nvram_net.txt
-vendor/lib/libsecpkcs11_engine.so
-vendor/lib/libSamsungPkcs11Wrapper.so
