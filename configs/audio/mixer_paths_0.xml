@@ -1,4 +1,10 @@
 <mixer>
+    <!--
+    ############################
+    ### Stock configurations ###
+    ############################
+    -->
+
 	<pcmdai playback_link="7" />
 	<pcmdai playback_jam_link="8" />
 	<pcmdai playback_deep_link="9" />
@@ -28,14 +34,8 @@
 	<ctl name="Chargepump Mode" value="CLASS-G-A" />
 	<ctl name="DNC Max Gain" value="6" />
 	<ctl name="FM Link" value="None" />
-	<!-- TODO: Need to figure out what to put in reset configuration. -->
-
-	<!-- default routes -->
-
-	<!-- TODO: Need to figure out what to put in default routes. -->
 
 	<!-- Common -->
-
 	<path name="route-ap">
 		<ctl name="AudioMixer Mixer En" value="On" />
 	</path>
@@ -100,30 +100,6 @@
 		<ctl name="AudioMixer CH1 DOUT Select" value="RMIX_OUT" />
 		<ctl name="AudioMixer CH2 DOUT Select" value="AIF3IN" />
 		<ctl name="AudioMixer CH3 DOUT Select" value="DMIX_OUT" />
-	</path>
-
-	<path name="route-analog-fm">
-		<ctl name="FM Link" value="FM On" />
-		<ctl name="AudioMixer Mixer En" value="On" />
-		<ctl name="MonoMix Mode" value="Disable" />
-		<ctl name="ADCL Mixer LINELL Switch" value="1" />
-		<ctl name="ADCR Mixer LINERR Switch" value="1" />
-		<ctl name="LINEIN LINEIN On" value="1" />
-	</path>
-
-	<path name="route-ap-fm-tx">
-		<path name="route-analog-fm" />
-		<ctl name="AudioMixer CH1 Mixer En" value="On" />
-		<ctl name="AudioMixer CH2 Mixer En" value="Off" />
-		<ctl name="AudioMixer CH3 Mixer En" value="Off" />
-		<ctl name="AudioMixer CH4 Mixer En" value="On" />
-		<ctl name="Chargepump Mode" value="CLASS-G-A" />
-		<ctl name="DNC Max Gain" value="24" />
-	</path>
-
-	<path name="route-ap-fm-rx">
-		<path name="route-analog-fm" />
-		<ctl name="AudioMixer CH1 DOUT Select" value="AIF4IN" />
 	</path>
 
 	<path name="route-ap-bt-codec">
@@ -443,42 +419,12 @@
 		<path name="media-speaker" />
 	</path>
 
-	<path name="wificall_wb_extra_vol-headset">
-		<path name="media-headset" />
-		<ctl name="DNC ZCD Enable" value="On" />
-		<ctl name="DNC ZCD Timeout" value="1" />
-		<ctl name="DNC Max Gain" value="12" />
-	</path>
-
-	<path name="wificall_wb_extra_vol-headphone">
-		<path name="communication-headset" />
-	</path>
-
-	<path name="wificall_wb_extra_vol-bt-sco-headset">
-		<path name="media-bt-sco-headset" />
-	</path>
-
 	<path name="wificall_nb_extra_vol-handset">
 		<path name="media-handset" />
 	</path>
 
 	<path name="wificall_nb_extra_vol-speaker">
 		<path name="media-speaker" />
-	</path>
-
-	<path name="wificall_nb_extra_vol-headset">
-		<path name="media-headset" />
-		<ctl name="DNC ZCD Enable" value="On" />
-		<ctl name="DNC ZCD Timeout" value="1" />
-		<ctl name="DNC Max Gain" value="12" />
-	</path>
-
-	<path name="wificall_nb_extra_vol-headphone">
-		<path name="communication-headset" />
-	</path>
-
-	<path name="wificall_nb_extra_vol-bt-sco-headset">
-		<path name="media-bt-sco-headset" />
 	</path>
 
 	<!-- Video call playback -->
@@ -673,15 +619,6 @@
 		<path name="incall_nb-speaker" />
 	</path>
 
-	<!-- VoLTE CP NB/EXTRA_VOL/HANDOVER -->
-	<path name="volte_cp_nb_extra_vol_handover-handset">
-		<path name="incall_nb-handset" />
-	</path>
-
-	<path name="volte_cp_nb_extra_vol_handover-speaker">
-		<path name="incall_nb-speaker" />
-	</path>
-
 	<!-- VoLTE VT CP NB -->
 	<path name="volte_vt_cp_nb-handset">
 		<path name="incall_nb-handset" />
@@ -724,7 +661,7 @@
 		<path name="incall_wb-bt-sco-headset" />
 	</path>
 
-	<!-- VoLTE CP WB/EXTRA_VOL -->	
+	<!-- VoLTE CP WB/EXTRA_VOL -->
 	<path name="volte_cp_wb_extra_vol-handset">
 		<path name="incall_wb-handset" />
 	</path>
@@ -1233,24 +1170,6 @@
 		<path name="incall_nb-speaker-mic" />
 	</path>
 
-	<!-- NB/EXTRA_VOL -->
-	<path name="incall_nb_extra_vol-handset-mic">
-		<path name="incall_nb-handset-mic" />
-	</path>
-
-	<path name="incall_nb_extra_vol-speaker-mic">
-		<path name="incall_nb-speaker-mic" />
-	</path>
-
-	<!-- NB/EXTRA_VOL/HANDOVER -->
-	<path name="incall_nb_extra_vol_handover-handset-mic">
-		<path name="incall_nb-handset-mic" />
-	</path>
-
-	<path name="incall_nb_extra_vol_handover-speaker-mic">
-		<path name="incall_nb-speaker-mic" />
-	</path>
-
 	<!-- WB -->
 	<path name="incall_wb-handset-mic">
 		<path name="incall_nb-handset-mic" />
@@ -1526,6 +1445,13 @@
 		<param name="DAC Soft Mute" id="0" />
 	</path>
 
+    <!--
+    #########################
+    ### Stock Audio Gains ###
+    #########################
+    -->
+
+	<!-- Output -->
 	<!-- Output volume stage -->
 	<!-- media playback volume -->
 	<path name="gain-media-handset">
@@ -3417,7 +3343,7 @@
 		<ctl name="AudioMixer RMIX2_LVL" value="0" />
 		<ctl name="ADC Left Gain" value="133" />
 		<ctl name="ADC Right Gain" value="133" />
-	</path>
+    </path>
 
     <!--
     ###########################
@@ -3569,3 +3495,4 @@
 		<path name="gain-recognition-headset-mic"/>
 	</path>
 </mixer>
+
