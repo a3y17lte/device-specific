@@ -24,7 +24,10 @@ PRODUCT_PACKAGES += \
     wificond \
     wifilogd \
     wlutil \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    android.hardware.wifi@1.0-service \
+    android.hardware.wifi@1.0 \
+    android.hardware.wifi@1.0-impl
 
 # Wi-Fi Configs
 PRODUCT_COPY_FILES += \
