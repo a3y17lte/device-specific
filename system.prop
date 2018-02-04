@@ -5,9 +5,6 @@ audio_hal.force_voice_config=wide
 # Bluetooth
 ro.bt.bdaddr_path="/efs/bluetooth/bt_addr"
 
-#system prop for Bluetooth SOC type
-qcom.bluetooth.soc=rome
-
 # Dalvik/Art
 dalvik.vm.heapstartsize=8m
 dalvik.vm.heapgrowthlimit=192m
