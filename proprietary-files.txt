@@ -86,7 +86,7 @@ app/mcRegistry/ffffffffd0000000000000000000000a.tlbin
 app/mcRegistry/ffffffffd00000000000000000000004.tlbin
 app/mcRegistry/ffffffffd00000000000000000000016.tlbin
 app/mcRegistry/fffffffff0000000000000000000001e.tlbin
-vendor/lib/libMcClient.so:lib/libMcClient.so
+vendor/lib/libMcClient.so:lib/libMcClient.so|6e20b880efa7e430beacaacd9b2721ed22398478
 vendor/lib/libMcRegistry.so:lib/libMcRegistry.so
 
 # OMX
