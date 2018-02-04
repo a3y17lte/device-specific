@@ -17,8 +17,16 @@
 # Inherit device configuration
 $(call inherit-product, device/samsung/on7xelte/device.mk)
 
-# Inherit from those products. Most specific first.
+# Inherit from those products. Most specific first
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-# Inherit some common CM stuff.
+# Inherit some common CM stuff
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
+
+# Device identifier
+PRODUCT_NAME := lineage_on7xelte
+PRODUCT_DEVICE := on7xelte
+PRODUCT_BRAND := samsung
+PRODUCT_MODEL := SM-G610F
+PRODUCT_MANUFACTURER := samsung
+PRODUCT_GMS_CLIENTID_BASE := android-samsung
