@@ -61,6 +61,9 @@ ro.telephony.ril_class=SlteRIL
 import /efs/factory.prop
 ro.multisim.simslotcount=2
 
+#Treble
+persist.media.treble_omx=false
+
 persist.sys.usb.config=mtp
 
 # Wifi
