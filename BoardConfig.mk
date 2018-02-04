@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+TARGET_OTA_ASSERT_DEVICE := on7xelte
+
 # Inherit from Exynos7870-common
 include device/samsung/exynos7870-common/BoardConfigCommon.mk
 
