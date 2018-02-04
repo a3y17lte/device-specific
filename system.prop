@@ -66,6 +66,9 @@ persist.media.treble_omx=false
 
 persist.sys.usb.config=mtp
 
+# sdcardfs
+ro.sys.sdcardfs=false
+
 # Wifi
 wifi.interface=wlan0
 net.tethering.noprovisioning=true
