@@ -11,7 +11,6 @@ etc/bluetooth/bt_stack.conf
 
 # Camera
 lib/hw/camera.universal7870.so
-lib/libcamera_metadata.so
 lib/libexynoscamera.so
 lib/libexynoscamera3.so
 lib/libseccameracore.so
@@ -32,10 +31,8 @@ vendor/lib/libHpr_LocFace_mvfd_v1.0.so
 
 # DRM
 vendor/lib/mediadrm/libdrmclearkeyplugin.so
-vendor/lib/mediadrm/libwvdrmengine.so
 
 # Fingerprint
-bin/mcDriverDaemon
 lib/libbauthserver.so
 lib/libbauthtzcommon.so
 lib/libegis_fp_normal_sensor_test.so
@@ -49,8 +46,6 @@ lib/libfloatingfeature.so
 lib/libwrappergps.so
 
 # Graphics
-# Vulcan and OpenCL are implemented in this file,
-# so we create symlinks in setup-makefiles.sh.
 vendor/lib/egl/libGLES_mali.so
 lib/egl/egl.cfg
 lib/egl/libGLES_android.so
@@ -102,8 +97,6 @@ lib/omx/libOMX.Exynos.VP8.Encoder.so
 lib/omx/libOMX.Exynos.WMV.Decoder.so
 
 # Radio
-bin/rild
-lib/libril.so
 lib/libsec-ril.so
 lib/libsecril-client.so
 lib/libaudio-ril.so
