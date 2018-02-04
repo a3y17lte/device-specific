@@ -151,6 +151,10 @@ lib/hw/sensors.universal7870.so
 lib/libsensorservice.so
 lib/libsensorlistener.so
 
+# Shim Libs
+lib/libprotobuf-cpp-N.so|f8b1e1d088cd4707393a1fad233f8b06116bc666
+lib/libprotobuf-cpp-fooo.so|5890f0daae5933210aa6b114bafc52ee7e809864
+
 # Surface Composer
 lib/hw/gralloc.exynos5.so
 
