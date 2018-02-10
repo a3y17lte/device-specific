@@ -47,6 +47,8 @@ etc/ca.pem
 lib/hw/gps.default.so
 lib/libfloatingfeature.so
 lib/libwrappergps.so
+vendor/lib/hw/flp.default.so
+vendor/lib/libflp.so
 
 # Graphics
 vendor/lib/egl/libGLES_mali.so
