@@ -1,7 +1,3 @@
-#Audio
-vendor/lib/libLifevibes_lvverx.so:vendor/lib/soundfx/libLifevibes_lvverx.so
-vendor/lib/libLifevibes_lvvetx.so:vendor/lib/soundfx/libLifevibes_lvvetx.so
-
 #Bluetooth
 bin/prepare_param.sh
 vendor/firmware/bcm4343A0_V0071.0262.hcd
