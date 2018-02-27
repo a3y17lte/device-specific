@@ -6,7 +6,7 @@ vendor/lib/libbt-vendor.so
 etc/bluetooth/bt_stack.conf
 
 # Camera
-lib/hw/camera.universal7870.so
+lib/hw/camera.universal7870.so:lib/hw/camera.vendor.universal7870.so
 lib/libexynoscamera.so
 lib/libexynoscamera3.so
 lib/libseccameracore.so
@@ -83,8 +83,8 @@ vendor/lib/libMcClient.so:lib/libMcClient.so|6e20b880efa7e430beacaacd9b2721ed223
 vendor/lib/libMcRegistry.so:lib/libMcRegistry.so
 
 # Radio
-lib/libsec-ril.so:vendor/lib/libsec-ril.so|09f007ba0fd0a66b98ccd4c4b8275c703a6a6804
-lib/libsec-ril-dsds.so:vendor/lib/libsec-ril-dsds.so|baf6ac2e770b0456ad1ad3906c92a4deebd11040
+lib/libsec-ril.so|09f007ba0fd0a66b98ccd4c4b8275c703a6a6804
+lib/libsec-ril-dsds.so|baf6ac2e770b0456ad1ad3906c92a4deebd11040
 lib/libsecril-client.so
 lib/libaudio-ril.so
 lib/libreference-ril.so
