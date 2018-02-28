@@ -3,7 +3,7 @@
   etc/Tfa9896.cnt
   
   # Bluetooth
-  lib/libbt-vendor
+  lib/libbt-vendor.so
   bin/wcnss_filter
   
   # Wifi
