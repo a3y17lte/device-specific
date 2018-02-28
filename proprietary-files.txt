@@ -2,14 +2,11 @@
   lib/libtfa98xx.so
   etc/Tfa9896.cnt
   
-  # Bluetooth & Wifi
+  # Bluetooth
   lib/libbt-vendor
   bin/wcnss_filter
-  etc/bluetooth/av_performance.conf
-  etc/bluetooth/bt_did.conf
-  etc/bluetooth/iop_bt.db
-  etc/bluetooth/iop_device_list.conf
-  etc/ca.pem
+  
+  # Wifi
   etc/firmware/bdwlan30.bin
   etc/firmware/bdwlan32.bin
   etc/firmware/Data.msc
@@ -32,14 +29,6 @@
   etc/firmware/utfbd30.bin
   etc/firmware/utfbd32.bin
   lib/modules/qca_cld/qca_cld_wlan.ko
-  bin/prepare_param.sh
-  etc/plmn_delta.bin
-  etc/plmn_se13.bin
-  etc/srm.bin
-  lib/modules/qca_cld/qca_cld_wlan.ko
-  bin/prepare_param.sh
-  etc/Tfa9896.cnt
-  etc/sec_s3nrn80_rfreg.bin
 
   # Camera
   lib/hw/camera.universal7870.so:lib/hw/camera.vendor.universal7870.so
@@ -70,7 +59,6 @@
   # DRM
   vendor/lib/mediadrm/libdrmclearkeyplugin.so
   vendor/lib/mediadrm/libwvdrmengine.so
-
 
   # Fingerprint
   lib/libbauthserver.so
