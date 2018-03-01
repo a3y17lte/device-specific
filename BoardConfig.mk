@@ -19,7 +19,9 @@ TARGET_OTA_ASSERT_DEVICE := a3y17lte
 # Inherit from Exynos7870-common
 include device/samsung/exynos7870-common/BoardConfigCommon.mk
 
+# Path
 LOCAL_PATH := device/samsung/a3y17lte
+TARGET_COPY_OUT_VENDOR := system/vendor
 
 # inherit the splitted configs
 -include $(LOCAL_PATH)/board/*.mk
@@ -33,6 +35,5 @@ TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
 # Inherit from the proprietary version
 -include vendor/samsung/a3y17lte/BoardConfigVendor.mk
 
-# Vendor separation
-TARGET_COPY_OUT_VENDOR := system/vendor
+
 
