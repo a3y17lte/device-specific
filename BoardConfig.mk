@@ -32,3 +32,7 @@ TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
 
 # Inherit from the proprietary version
 -include vendor/samsung/a3y17lte/BoardConfigVendor.mk
+
+# Vendor separation
+TARGET_COPY_OUT_VENDOR := system/vendor
+
