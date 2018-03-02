@@ -29,6 +29,11 @@
   # Bluetooth
   lib/libbt-vendor.so
   bin/wcnss_filter
+  etc/bluetooth/av_performance.conf
+  etc/bluetooth/bt_did.conf
+  etc/bluetooth/bt_stack.conf
+  etc/bluetooth/iop_bt.db
+  etc/bluetooth/iop_device_list.conf
   
   # Wifi
   etc/firmware/bdwlan30.bin
