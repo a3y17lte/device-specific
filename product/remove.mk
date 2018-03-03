@@ -17,4 +17,4 @@
 
 # Remove packages that do not work well
 PRODUCT_PACKAGES += \
-    RemovePackagesy
+    RemovePackages
