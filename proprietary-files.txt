@@ -1,31 +1,3 @@
-  # Audio
-  etc/Tfa9896.cnt
-  lib/hw/audio.primary.universal7870.so
-  lib/libaudioroute.so
-  lib/libaudiosa.so
-  lib/libcodecdump.so
-  lib/libmysound.so
-  lib/libpreprocessing_nxp.so
-  lib/librecordalive.so
-  lib/libsamsungDiamondVoice.so
-  lib/libSamsungPostProcess.so
-  lib/libSamsungPostProcessConvertor.so
-  lib/libsamsungSoundbooster_plus.so
-  lib/libsecaudioinfo.so
-  lib/libsxqk_skia.so
-  lib/libtfa98xx.so
-  lib/libtinyalsa.so
-  lib/libtinycompress.so
-  lib/lib_DNSe_EP_ver216c.so
-  lib/lib_SamsungRec_06002.so
-  lib/lib_SamsungVAD_v01009.so
-  lib/lib_SA_GoogleFX_ver124b.so
-  lib/lib_soundaliveresampler.so
-  lib/lib_SoundAlive_3DPosition_ver202.so
-  lib/lib_SoundAlive_play_plus_ver127a.so
-  lib/lib_SoundAlive_SRC384_ver300.so
-  lib/lib_SoundBooster_ver710.so  
-  
   # Bluetooth
   lib/libbt-vendor.so
   bin/wcnss_filter
