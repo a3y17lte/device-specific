@@ -1,23 +1,13 @@
 # NFC
     mkdir /data/nfc 0700 nfc nfc
     mkdir /data/nfc/param 0700 nfc nfc
-    mkdir /data/bcmnfc 0700 nfc nfc
-    mkdir /data/bcmnfc/param 0700 nfc nfc
 
-# NFC_NXP
-    setprop ro.nfc.port "I2C"
-    chmod 0660 /dev/pn547
-    chown nfc nfc /dev/pn547
-    chown nfc /dev/pn547
-    chgrp nfc /dev/pn547
-
-   # NFC_BROADCOM
-    chmod 0600 /dev/bcm2079x
-    chown nfc nfc /dev/bcm2079x
-
-# NFC_SLSI
+# NFC : Permissions for NFC
     chmod 0660 /dev/sec-nfc
     chown nfc nfc /dev/sec-nfc
+
+# NFC : EFS section for NFC Resonant Frequency
+    mkdir /efs/sec_efs/nfc 0700 nfc nfc
 
 # Magnetic_sensor
     chown system radio /sys/class/sensors/magnetic_sensor/selftest
@@ -27,6 +17,7 @@
     chown system radio /sys/class/sensors/magnetic_sensor/name
     chown system radio /sys/class/sensors/magnetic_sensor/status
     chown system radio /sys/class/sensors/magnetic_sensor/dhr_sensor_info
+
 # Grip_sensor
     chown system radio /sys/class/sensors/grip_sensor/name
     chown system radio /sys/class/sensors/grip_sensor/vendor
@@ -50,8 +41,6 @@
     chown system radio /sys/class/sensors/grip_sensor/irq_count
 
 # Proximity_sensor
-   chown system radio /sys/class/sensors/proximity_sensor/thresh_detect_high
-   chown system radio /sys/class/sensors/proximity_sensor/thresh_detect_low
    chown system radio /sys/class/sensors/proximity_sensor/prox_probe
 
 # Barometer_sensor
@@ -109,28 +98,7 @@
    chown system radio /sys/class/sec/sec_barcode_emul/barcode_ver_check
 
  # Permissions for Touchkey
-
    chown system radio /sys/class/sec/sec_touchkey/touchkey_light_version
    chown system radio /sys/class/sec/sec_touchkey/touchkey_light_update
    chown system radio /sys/class/sec/sec_touchkey/touchkey_light_id_compare
    chown system radio /sys/class/sec/sec_touchkey/touchkey_light_table_write
-
- # Bluetooth
-on property:wc_transport.start_hci=true
-    start start_hci_filter
-
-on property:wc_transport.start_hci=false
-    stop start_hci_filter
-    
-    group bluetooth qcom_diag
-
-# RPMB daemon
-service rpmbd /system/bin/rpmbd
-     user root
-     group drmrpc
-     class main
-
-
-
-
-
