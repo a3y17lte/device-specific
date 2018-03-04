@@ -29,6 +29,9 @@ TARGET_COPY_OUT_VENDOR := system/vendor
 # SELinux
 BOARD_SEPOLICY_DIRS += device/samsung/a3y17lte/sepolicy
 
+# Manifest
+ DEVICE_MANIFEST_FILE := device/samsung/a3y17lte/manifest.xml
+
 # Properties
 TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
 
