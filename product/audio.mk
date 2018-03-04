@@ -16,7 +16,7 @@
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio/audio_policy.conf:etc/audio_policy.conf \
-    $(LOCAL_PATH)/configs/audio/mixer_gains.xml:$/etc/mixer_gains.xml \
-    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:$/etc/mixer_paths.xml \
-    $(LOCAL_PATH)/configs/audio/mixer_paths_0.xml:$/etc/mixer_paths_0.xml
+    $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/configs/audio/mixer_gains.xml:$system/etc/mixer_gains.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:$system/etc/mixer_paths.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_0.xml:$system/etc/mixer_paths_0.xml
