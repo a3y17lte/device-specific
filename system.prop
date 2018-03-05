@@ -13,6 +13,9 @@ dalvik.vm.isa.arm.features=default
 # DPI
 ro.sf.lcd_density=360
 
+# HWC
+debug.hwc.force_gpu=1
+
 # Hwui
 ro.hwui.texture_cache_size=24
 ro.hwui.layer_cache_size=16
