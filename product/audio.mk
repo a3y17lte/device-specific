@@ -22,4 +22,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/mixer_paths_0.xml:system/etc/mixer_paths_0.xml
 
 PRODUCT_PACKAGES += \
-    RemovePackages
+   libtfa98xx \
+   audio_amplifier.universal7870 \
+   libtinycompress
+
