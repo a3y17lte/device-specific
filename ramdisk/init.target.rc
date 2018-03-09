@@ -1,3 +1,5 @@
+on boot
+
 # NFC
     mkdir /data/nfc 0700 nfc nfc
     mkdir /data/nfc/param 0700 nfc nfc
