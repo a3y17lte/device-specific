@@ -40,3 +40,7 @@ qcom.bluetooth.soc=rome
 # Nfc
 ro.nfc.port="I2C"
 ro.nfc.sec_hal=true
+
+# Wifi
+net.tethering.noprovisioning=true
+
