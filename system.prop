@@ -1,20 +1,5 @@
-# Dalvik/Art
-dalvik.vm.heapstartsize=8m
-dalvik.vm.heapgrowthlimit=192m
-dalvik.vm.heapsize=512m
-dalvik.vm.heaptargetutilization=0.75
-dalvik.vm.heapminfree=512k
-dalvik.vm.heapmaxfree=8m
-dalvik.vm.isa.arm64.variant=generic
-dalvik.vm.isa.arm64.features=default
-dalvik.vm.isa.arm.variant=cortex-a15
-dalvik.vm.isa.arm.features=default
-
 # DPI
 ro.sf.lcd_density=360
-
-# HWC
-debug.hwc.force_gpu=1
 
 # Hwui
 ro.hwui.texture_cache_size=24
