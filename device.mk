@@ -29,3 +29,6 @@ $(call inherit-product, vendor/samsung/a3y17lte/a3y17lte-vendor.mk)
 
 # Dalvik heap
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk) 
+
+# call the common proprietary setup
+$(call inherit-product, vendor/samsung/exynos7870-common/exynos7870-common-vendor.mk)
