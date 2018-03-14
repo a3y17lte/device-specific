@@ -16,4 +16,4 @@
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:system/vendor/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media/media_profiles.xml:system/vendor/etc/media_profiles.xml
+    $(LOCAL_PATH)/configs/media/media_profiles.xml_V1_0:system/vendor/etc/media_profiles_V1_0.xml
