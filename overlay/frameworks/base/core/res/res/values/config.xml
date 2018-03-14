@@ -99,6 +99,17 @@
          that can be set by the user. -->
     <integer name="config_screenBrightnessDim">4</integer>
 
+    <!-- Screen brightness used to dim the screen while dozing in a very low power state.
+         May be less than the minimum allowed brightness setting
+         that can be set by the user. -->
+    <integer name="config_screenBrightnessDoze">4</integer>
+    
+    <!-- Whether or not to skip the initial brightness ramps when the display transitions to
+        STATE_ON. Setting this to true will skip the brightness ramp to the last stored active
+        brightness value and will repeat for the following ramp if autobrightness is enabled. -->
+    <bool name="config_skipScreenOnBrightnessRamp">true</bool>
+ 
+    
     <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
          in hardware. -->
     <bool name="config_nightDisplayAvailable">true</bool>
