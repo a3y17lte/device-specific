@@ -24,13 +24,13 @@ LOCAL_PATH := device/samsung/a3y17lte
 TARGET_COPY_OUT_VENDOR := system/vendor
 
 # inherit the splitted configs
--include $(LOCAL_PATH)/board/*.mk
+-include $(LOCAL_PATH)/configs/board/*.mk
 
 # SELinux
 BOARD_SEPOLICY_DIRS += device/samsung/a3y17lte/sepolicy
 
 # Manifest
- DEVICE_MANIFEST_FILE := device/samsung/a3y17lte/manifest.xml
+ DEVICE_MANIFEST_FILE := device/samsung/a3y17lte/configs/manifest/manifest.xml
 
 # Properties
 TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
