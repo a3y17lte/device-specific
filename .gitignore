@@ -1,3 +1,0 @@
-# Don't include patch files (To prevent it's unwanted addition in a commit)
-
-*.patch
