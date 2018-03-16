@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2018 The LineageOS Project
  *
@@ -27,3 +26,4 @@
 #define BTIF_HF_WBS_PREFERRED TRUE  /* Use WBS    */
 
 #endif
+
