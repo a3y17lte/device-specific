@@ -66,6 +66,7 @@
   vendor/lib/mediadrm/libwvdrmengine.so
 
   # Fingerprint
+  lib/hw/fingerprint.default.so
   lib/libbauthserver.so
   lib/libbauthtzcommon.so
   lib/libegis_fp_normal_sensor_test.so
