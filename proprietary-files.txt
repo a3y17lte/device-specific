@@ -136,7 +136,12 @@
 
   # Sensors
   lib/hw/sensors.universal7870.so
+  lib/libsensorservice.so
   lib/libsensorlistener.so
+  bin/sensorhubservice
+  lib/hw/sensorhubs.universal7870.so
+  lib/libsensorhub.so
+  lib/libsensorhubservice.so
   
   # NFC
   etc/sec_s3nrn80_rfreg.bin         
