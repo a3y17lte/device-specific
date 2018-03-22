@@ -1,7 +1,9 @@
 <manifest version="1.0" type="device">
+    
     <!--
         Fingerprint
       -->
+    
     <hal format="hidl">
         <name>android.hardware.biometrics.fingerprint</name>
         <transport>hwbinder</transport>
@@ -15,6 +17,7 @@
     <!--
         Bluetooth
       -->
+    
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
         <transport>hwbinder</transport>
@@ -28,6 +31,7 @@
     <!--
         Camera
       -->
+    
     <hal format="hidl">
         <name>android.hardware.camera.provider</name>
         <transport>hwbinder</transport>
@@ -41,6 +45,7 @@
     <!--
         Cas
       -->
+    
     <hal format="hidl">
         <name>android.hardware.cas</name>
         <transport>hwbinder</transport>
@@ -67,15 +72,17 @@
     <!--
         DRM
       -->
+    
     <hal format="hidl">
         <name>android.hardware.drm</name>
-        <transport arch="32">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>1.0</version>
     </hal>
 
     <!--
         GPS
       -->
+    
     <hal format="hidl">
         <name>android.hardware.gnss</name>
         <transport arch="32">passthrough</transport>
@@ -89,6 +96,7 @@
     <!--
         Graphics
       -->
+    
     <hal format="hidl">
         <name>android.hardware.graphics.allocator</name>
         <transport>hwbinder</transport>
@@ -100,7 +108,7 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.composer</name>
-        <transport arch="32">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>2.1</version>
     </hal>
     <hal format="hidl">
@@ -116,9 +124,10 @@
     <!--
         Keymaster
       -->
+    
     <hal format="hidl">
         <name>android.hardware.keymaster</name>
-        <transport arch="32">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>3.0</version>
         <interface>
             <name>IKeymasterDevice</name>
@@ -129,9 +138,10 @@
     <!--
         Lights
       -->
+    
     <hal format="hidl">
         <name>android.hardware.light</name>
-        <transport arch="32">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>2.0</version>
         <interface>
             <name>ILight</name>
@@ -142,6 +152,7 @@
     <!--
         Memtracker
       -->
+    
     <hal format="hidl">
         <name>android.hardware.memtrack</name>
         <transport arch="32">passthrough</transport>
@@ -169,6 +180,7 @@
     <!--
         Power
       -->
+    
     <hal format="hidl">
         <name>android.hardware.power</name>
         <transport>hwbinder</transport>
@@ -195,6 +207,7 @@
     <!--
         Radio
       -->
+    
     <hal format="hidl">
         <name>android.hardware.radio</name>
         <transport>hwbinder</transport>
@@ -224,24 +237,27 @@
     <!--
         Renderscript
       -->
+    
     <hal format="hidl">
         <name>android.hardware.renderscript</name>
-        <transport arch="32">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>1.0</version>
     </hal>
 
     <!--
         Sensors
       -->
+    
     <hal format="hidl">
         <name>android.hardware.sensors</name>
-        <transport arch="32">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>1.0</version>
     </hal>
 
     <!--
         USB
       -->
+    
     <hal format="hidl">
         <name>android.hardware.usb</name>
         <transport>hwbinder</transport>
@@ -255,6 +271,7 @@
     <!--
         Vibrator
       -->
+    
     <hal format="hidl">
         <name>android.hardware.vibrator</name>
         <transport>hwbinder</transport>
@@ -268,6 +285,7 @@
     <!--
         Wifi
       -->
+    
     <hal format="hidl">
         <name>android.hardware.wifi</name>
         <transport>hwbinder</transport>
