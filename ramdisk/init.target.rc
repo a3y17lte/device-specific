@@ -1,4 +1,9 @@
 on boot
+   
+# Fingerprint_sensor
+    chown system radio /sys/class/fingerprint/fingerprint/type_check
+    chown system radio /sys/class/fingerprint/fingerprint/name
+    chown system radio /sys/class/fingerprint/fingerprint/vendor
 
 # NFC
     mkdir /data/nfc 0700 nfc nfc
