@@ -21,6 +21,7 @@ ro.sys.sdcardfs=false
 # Bluetooth workaround:
 # The new CAF code defaults to MCT HAL
 qcom.bluetooth.soc=rome
+ro.bt.bdaddr_path=/efs/bluetooth/bt_addr
 
 # Nfc
 ro.nfc.port="I2C"
