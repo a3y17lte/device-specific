@@ -24,7 +24,7 @@ qcom.bluetooth.soc=rome
 ro.bt.bdaddr_path=/efs/bluetooth/bt_addr
 
 # Nfc
-ro.nfc.port="I2C"
+ro.nfc.port=I2C
 ro.nfc.sec_hal=true
 
 # Wifi
