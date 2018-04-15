@@ -1,14 +1,21 @@
 <manifest version="1.0" type="device">
+
+ 
+
     <!--
-        Fingerprint
-      -->
-    <hal format="hidl">
-        <name>android.hardware.biometrics.fingerprint</name>
-        <transport>hwbinder</transport>
-        <version>2.1</version>
-        <interface>
-            <name>IBiometricsFingerprint</name>
-            <instance>default</instance>
+    <!-- Fingerprint
+        Lights -->
+    --> <hal format="hidl">
+         <name>android.hardware.biometrics.fingerprint</name>
+    <hal format="hidl"> <transport>hwbinder</transport>
+        <name>android.hardware.light</name> 
+<version>2.1</version>
+        <transport>hwbinder</transport> <interface>
+        <version>2.0</version> 
+<name>IBiometricsFingerprint</name>
+        <interface> <instance>default</instance>
+            <name>ILight</name> </interface>
+            <instance>default</instance> </hal>
         </interface>
     </hal>
 
