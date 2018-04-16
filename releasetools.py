@@ -37,12 +37,19 @@ def addFolderToZip(info, directory, basedir):
         else:
             addFolderToZip(info,each,os.path.join(basedir, entity))
 
-def FullOTA_InstallBegin(info):
+def FullOTA_InstallBegin(info):  
+    info.script.AppendExtra('ui_print("                                                    ");');
+    info.script.AppendExtra('ui_print("    _    _                           ___  ___       ");');
+    info.script.AppendExtra('ui_print("   | |  <_>._ _  ___  ___  ___  ___ | . |/ __>      ");');
+    info.script.AppendExtra('ui_print("   | |_ | || ' |/ ._><_> |/ . |/ ._>| | |\__ \      ");');
+    info.script.AppendExtra('ui_print("   |___||_||_|_|\___.<___|\_. |\___.`___'<___/      ");');
+    info.script.AppendExtra('ui_print("                          <___'                     ");');           
+    info.script.AppendExtra('ui_print("                                                    ");');
     info.script.AppendExtra('ui_print("                                                    ");');
     info.script.AppendExtra('ui_print("                Thanks for installing !             ");');
     info.script.AppendExtra('ui_print("    Source code available on GitHub : @a3y17lte     ");');
     info.script.AppendExtra('ui_print("                                                    ");');
-    info.script.AppendExtra('ui_print("    --> Maintainer:                                 ");');
+    info.script.AppendExtra('ui_print("   --> Maintainer:                                  ");');
     info.script.AppendExtra('ui_print("                   __  __    ___                    ");');
     info.script.AppendExtra('ui_print("                  |  \/  |__| __|  _                ");');
     info.script.AppendExtra('ui_print("                  | |\/| / _| _| || |               ");');
