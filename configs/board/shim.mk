@@ -15,4 +15,4 @@
 
 # Shim
 TARGET_LD_SHIM_LIBS += \
-    /system/lib/libbauthserver.so|/system/vendor/lib/libbauthtzcommon_shim.so
+    /system/lib/libbauthserver.so|/system/vendor/lib/libbauthtzcommon_shim.so:/system/lib/hw/fingerprint.exynos5.so|system/lib/hw/fingerprint.exynos5.so|
