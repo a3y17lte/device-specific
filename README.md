@@ -22,7 +22,7 @@ CPU     | 1,6 GHz octa-core
 Chipset | Samsung Exynos 7870
 GPU     | Mali-T830 MP1
 Memory  | 2 GB RAM
-Shipped Android Version | 6.0.1, upgradable to 7.0
+Shipped Android Version | 6.0.1, 7.0 upgradable to 8.0
 Storage | 16 GB
 Battery | Li-Ion 2350mAh battery
 Display | 720 x 1080 pixels, 4.7", SUPER AMOLED 
