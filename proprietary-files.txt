@@ -145,9 +145,9 @@
   lib/libsensorhubservice.so
   
   # NFC
-  etc/sec_s3nrn80_rfreg.bin         
+  etc/sec_s3nrn81_rfreg.bin         
   lib/hw/nfc_nci.universal7870.so
-  vendor/firmware/sec_s3nrn80_firmware.bin
+  vendor/firmware/sec_s3nrn81_firmware.bin
 
   # Shim Libs
   lib/libprotobuf-cpp-N.so|f8b1e1d088cd4707393a1fad233f8b06116bc666
