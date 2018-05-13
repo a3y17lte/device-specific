@@ -1,6 +1,7 @@
+#!/sbin/sh
 #
-# Copyright 2016 The CyanogenMod Project
-# Copyright 2017-2018 The LineageOS Project
+# Copyright (C) 2009 The Android Open Source Project
+# Copyright (c) 2011-2013, The Linux Foundation. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,9 +16,14 @@
 # limitations under the License.
 #
 
-#####################
-# Release tools
-#####################
+systemp=$(cat tmp/recovery.log | grep "/system |" | cut -d "|" -f 2)
+mount $systemp /system
 
-# Release tools extention
-TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools
+getprop=`getprop ro.bootloader`
+variant=`echo $getprop | cut -c1-6`
+if [ $variant = "A320FL" ]
+then
+    rm /system/etc/libnfc-sec-hal.conf
+    mv /system/etc/libnfc-sec-hal.conf.s3nrn80 system/etc/libnfc-sec-hal.conf
+Fi
+exit 0

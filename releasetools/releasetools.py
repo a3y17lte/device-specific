@@ -15,6 +15,7 @@
 '''a3y17lte release tool'''
 
 import common
+import re
 import os
 import sys
 import time
@@ -37,14 +38,7 @@ def addFolderToZip(info, directory, basedir):
         else:
             addFolderToZip(info,each,os.path.join(basedir, entity))
 
-def FullOTA_InstallBegin(info):  
-    info.script.AppendExtra('ui_print("                                                    ");');
-    info.script.AppendExtra('ui_print("    _    _                           ___  ___       ");');
-    info.script.AppendExtra('ui_print("   | |  <_>._ _  ___  ___  ___  ___ | . |/ __>      ");');
-    info.script.AppendExtra('ui_print("   | |_ | || ' |/ ._><_> |/ . |/ ._>| | |\__ \      ");');
-    info.script.AppendExtra('ui_print("   |___||_||_|_|\___.<___|\_. |\___.`___'<___/      ");');
-    info.script.AppendExtra('ui_print("                          <___'                     ");');           
-    info.script.AppendExtra('ui_print("                                                    ");');
+def FullOTA_InstallBegin(info):
     info.script.AppendExtra('ui_print("                                                    ");');
     info.script.AppendExtra('ui_print("                Thanks for installing !             ");');
     info.script.AppendExtra('ui_print("    Source code available on GitHub : @a3y17lte     ");');
@@ -59,3 +53,7 @@ def FullOTA_InstallBegin(info):
     info.script.AppendExtra('ui_print("   --> Device: Samsung Galaxy A3 2017               ");');
     info.script.AppendExtra('ui_print("                                                    ");');
     info.script.AppendExtra('ui_print("                                                    ");');
+						
+def FullOTA_InstallEnd(info):
+    # run installend scripts
+    info.script.AppendExtra('assert(run_program("/tmp/install/bin/nfc_scripts.sh", "installend") == 0);')

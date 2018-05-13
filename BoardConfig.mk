@@ -19,8 +19,8 @@ TARGET_OTA_ASSERT_DEVICE := a3y17lte,a3y17ltexc,a3y17ltexx,a3y17ltelk
 # Inherit from Exynos7870-common
 include device/samsung/exynos7870-common/BoardConfigCommon.mk
 
-# Init 
-TARGET_INIT_VENDOR_LIB := libinit_sec
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_a3y17lte
 
 # Path
 LOCAL_PATH := device/samsung/a3y17lte
