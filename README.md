@@ -1,8 +1,10 @@
 
+```
 Copyright (C) 2017 The LineageOS Project
 Copyright (C) 2017 McFy  <g.matthieu49@gmail.com>
 Copyright (C) 2017 Valera Chigir <valera1978@tut.by>
 Copyright (C) 2017 Siddhant Naik
+```
 
 Device configuration for the Samsung Galaxy A3 2017 (A320F/FL/xx)
 =================================================================

@@ -2239,8 +2239,8 @@
 		<ctl name="MIC1 Boost Volume" value="1" />
 		<ctl name="MIC2 Volume" value="10" />
 		<ctl name="MIC2 Boost Volume" value="1" />
-		<ctl name="ADC Left Gain" value="134" />
-		<ctl name="ADC Right Gain" value="134" />
+		<ctl name="ADC Left Gain" value="165" />
+		<ctl name="ADC Right Gain" value="165" />
 	</path>
 
 	<path name="gain-camcorder-headset-mic">
@@ -3314,6 +3314,7 @@
 	<path name="gain-fm_radio-fm-recording" >
 		<ctl name="AudioMixer RMIX2_LVL" value="0" />
 	</path>
+
 		<!-- Samsung OSS audio HAL custom paths -->
 	
 	<path name="none">
@@ -3475,3 +3476,6 @@
 		<path name="gain-recording-headset-mic"/>
 	</path>
 </mixer>
+
+
+

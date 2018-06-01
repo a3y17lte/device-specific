@@ -15,27 +15,6 @@
 #
 
 # Wi-Fi
-PRODUCT_PACKAGES += \
-    hostapd \
-    libqsap_sdk \
-    libQWiFiSoftApCfg \
-    libwpa_client \
-    wpa_supplicant \
-    wpa_supplicant.conf \
-    wificond \
-    android.hardware.wifi@1.0-service
-
-# Wi-Fi Configs
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/vendor/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/vendor/etc/wifi/wpa_supplicant_overlay.conf
-
-# WCNSS
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wifi/grippower.info:system/etc/firmware/wlan/grippower.info \
-    $(LOCAL_PATH)/configs/wifi/qcom_cfg.ini:system/etc/firmware/wlan/qcom_cfg.ini \
-    $(LOCAL_PATH)/configs/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/WCNSS_cfg.dat
-
 # Wi-Fi Ramdisk Package
   PRODUCT_PACKAGES += \
       init.wifi.rc
