@@ -12,6 +12,8 @@ on post-fs
 
 on boot
 
+write /sys/class/input_booster/level 0
+
 # Audio I2C node for TFA amp
     chmod 0660 /dev/i2c-20
     chown audio audio /dev/i2c-20
