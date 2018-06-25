@@ -1,7 +1,5 @@
-#!/sbin/sh
 #
-# Copyright (C) 2009 The Android Open Source Project
-# Copyright (c) 2011-2013, The Linux Foundation. All rights reserved.
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,14 +14,6 @@
 # limitations under the License.
 #
 
-systemp=$(cat tmp/recovery.log | grep "/system |" | cut -d "|" -f 2)
-mount $systemp /system
-
-getprop=`getprop ro.bootloader`
-variant=`echo $getprop | cut -c1-6`
-if [ $variant = "A320FL" ]
-then
-    rm /system/etc/libnfc-sec-hal.conf
-    mv /system/etc/libnfc-sec-hal.conf.s3nrn80 system/etc/libnfc-sec-hal.conf
-fi
-exit 0
+# NFC
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/releasetools/nfc_scripts.sh:install/bin/nfc_scripts.sh

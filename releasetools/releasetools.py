@@ -56,4 +56,6 @@ def FullOTA_InstallBegin(info):
 						
 def FullOTA_InstallEnd(info):
     # run installend scripts
+    info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM", "/system", "");')
     info.script.AppendExtra('assert(run_program("/tmp/install/bin/nfc_scripts.sh", "installend") == 0);')
+    info.script.AppendExtra('unmount("/system");')
