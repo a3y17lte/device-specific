@@ -20,6 +20,13 @@ write /sys/class/input_booster/level 0
     
     chown bluetooth net_bt /dev/ttySAC0
     chmod 0660 /dev/ttySAC0
+
+# sem_daemon permission
+    chown system system /efs/sec_efs/ssp_data
+    chmod 0644 /efs/sec_efs/ssp_data
+
+#MST HW Support
+    setprop ro.mst.support 1
     
 # Permissions for Bluetooth.
 
@@ -36,6 +43,45 @@ write /sys/class/input_booster/level 0
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
+
+    # basic network init
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
+    # set RLIMIT_NICE to allow priorities from 19 to -20
+    setrlimit 13 40 40
+    
+     # MTP permission
+    mkdir /dev/socket/mtp 0770 system mtp
+
+    # NPS permission
+    mkdir /dev/socket/nps 0770 system system
+
+    # MSP FactoryApp
+    mkdir /efs/FactoryApp 0775 system system
+
+    # Memory management.  Basic kernel parameters, and allow the high
+    # level system server to be able to adjust the kernel OOM driver
+    # parameters to match how it is managing things.
+    write /proc/sys/vm/overcommit_memory 1
+    write /proc/sys/vm/min_free_order_shift 4
+    chown root system /sys/module/lowmemorykiller/parameters/adj
+    chmod 0664 /sys/module/lowmemorykiller/parameters/adj
+    chown root system /sys/module/lowmemorykiller/parameters/minfree
+    chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
+
+    # Tweak background writeout
+    write /proc/sys/vm/dirty_expire_centisecs 200
+    #write /proc/sys/vm/dirty_background_ratio  5
+    #for dirty_background_ratio, just use kernel default value
+
+    # Switch Device
+    chown system radio /sys/class/sec/switch/usb_sel
+    chown system radio /sys/class/sec/switch/uart_sel
+    chown system radio /sys/class/sec/switch/uart_en
+    chown system radio /sys/class/sec/switch/otg_test
+    chown system radio /sys/class/sec/switch/apo_factory
 
     # create basic filesystem structure
     mkdir /data/misc 01771 system misc
@@ -78,6 +124,10 @@ write /sys/class/input_booster/level 0
     mkdir /data/misc/profiles 0771 system system
     mkdir /data/misc/profiles/cur 0771 system system
     mkdir /data/misc/profiles/ref 0771 system system
+
+    #lpnetConfig AppSync
+    mkdir /data/misc/lpnet 0700 system system
+
     
 # Permissions for Camera
     mkdir /data/camera 0770 media system
@@ -354,14 +404,89 @@ service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF0000000000000
     # chown spay system /dev/mst_ctrl
     chmod 0660 /dev/mst_ctrl
     
-    # Bluetooth
+
+# Activate Background Compaction
+on property:sys.sysctl.compact_memory=1
+    setprop sys.sysctl.compact_memory 0
+    start compact_memory
+
+service compact_memory /sbin/bgcompact
+    user root
+    seclabel u:r:sswap:s0
+    oneshot
+    disabled
+
+
+# "tcp_default_init_rwnd" Is too long!
+on property:sys.sysctl.tcp_def_init_rwnd=*
+    write /proc/sys/net/ipv4/tcp_default_init_rwnd ${sys.sysctl.tcp_def_init_rwnd}
+
+    
+    # LPM
+on property:ro.bootmode=charger
+   mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/SYSTEM /system wait ro
+
+on property:ro.bootmode=charger
+    wait /dev/block/platform/13540000.dwmmc0/by-name/EFS
+    mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/EFS /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit
+
+service charger /charger
+    class charger
+    critical
+    seclabel u:r:charger:s0
+    
+service healthd /sbin/healthd
+    class core
+    critical
+    seclabel u:r:healthd:s0
+    group root system wakelock
+
+    
+
+on property:init.svc.zygote=restarting
+    restart bootchecker
+
+# strongSwan VPN
+service charon /system/bin/charon
+    class main
+    socket charon stream 600 system system
+    # charon will setuid to vpn after getting necessary resources.
+    group vpn net_admin inet shell
+    disabled
+    oneshot
+    
+# Bluetooth
 on property:wc_transport.start_hci=true
     start start_hci_filter
+
+service battery_charger /sbin/healthd -c
+    class charger
+    critical
+    seclabel u:r:healthd:s0
+
+
+on property:wc_transport.start_hci=false
+    stop start_hci_filter
+
 service start_hci_filter /system/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth qcom_diag
     disabled
+    
+service vpnclientd /system/bin/vpnclientd
+    socket vpnclientd seqpacket 0600 system system
+    user system
+    group system net_admin inet net_raw
+    disabled
+on property:service.vpnclientd.enable=1
+    start vpnclientd
+on property:service.vpnclientd.enable=0
+    stop vpnclientd
+    
+on property:sys.sf.restart=1
+    restart surfaceflinger
+    
     
 
 
