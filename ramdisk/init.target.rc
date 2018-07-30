@@ -1,88 +1,18 @@
 on post-fs-data
+
     # Mobicore
     export MC_AUTH_TOKEN_PATH /efs
     mkdir /efs/TEE  0770 radio system
     chmod 0660 /dev/t-base-tui
     chown system system /dev/t-base-tui
     start mobicore
-
+    
+    
 on post-fs
+    
     # Mobicore
     setprop sys.mobicoredaemon.enable stopped
-
-on boot
-
-write /sys/class/input_booster/level 0
-
-# Audio I2C node for TFA amp
-    chmod 0660 /dev/i2c-20
-    chown audio audio /dev/i2c-20
     
-    chown bluetooth net_bt /dev/ttySAC0
-    chmod 0660 /dev/ttySAC0
-
-# sem_daemon permission
-    chown system system /efs/sec_efs/ssp_data
-    chmod 0644 /efs/sec_efs/ssp_data
-
-#MST HW Support
-    setprop ro.mst.support 1
-    
-# Permissions for Bluetooth.
-
-    mkdir /efs/bluetooth 0775 radio system
-    chown radio system /efs/bluetooth
-    chmod 0775 /efs/bluetooth
-
-    setprop ro.bt.bdaddr_path /efs/bluetooth/bt_addr
-    chown bluetooth bluetooth ro.bt.bdaddr_path
-    chown radio bluetooth /efs/bluetooth/bt_addr
-    chmod 0640 /efs/bluetooth/bt_addr
-    chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
-    chmod 0660 /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
-    chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
-
-    # basic network init
-    ifup lo
-    hostname localhost
-    domainname localdomain
-
-    # set RLIMIT_NICE to allow priorities from 19 to -20
-    setrlimit 13 40 40
-    
-     # MTP permission
-    mkdir /dev/socket/mtp 0770 system mtp
-
-    # NPS permission
-    mkdir /dev/socket/nps 0770 system system
-
-    # MSP FactoryApp
-    mkdir /efs/FactoryApp 0775 system system
-
-    # Memory management.  Basic kernel parameters, and allow the high
-    # level system server to be able to adjust the kernel OOM driver
-    # parameters to match how it is managing things.
-    write /proc/sys/vm/overcommit_memory 1
-    write /proc/sys/vm/min_free_order_shift 4
-    chown root system /sys/module/lowmemorykiller/parameters/adj
-    chmod 0664 /sys/module/lowmemorykiller/parameters/adj
-    chown root system /sys/module/lowmemorykiller/parameters/minfree
-    chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
-
-    # Tweak background writeout
-    write /proc/sys/vm/dirty_expire_centisecs 200
-    #write /proc/sys/vm/dirty_background_ratio  5
-    #for dirty_background_ratio, just use kernel default value
-
-    # Switch Device
-    chown system radio /sys/class/sec/switch/usb_sel
-    chown system radio /sys/class/sec/switch/uart_sel
-    chown system radio /sys/class/sec/switch/uart_en
-    chown system radio /sys/class/sec/switch/otg_test
-    chown system radio /sys/class/sec/switch/apo_factory
-
     # create basic filesystem structure
     mkdir /data/misc 01771 system misc
     mkdir /data/misc/bluedroid 02770 bluetooth bluetooth
@@ -128,8 +58,79 @@ write /sys/class/input_booster/level 0
     #lpnetConfig AppSync
     mkdir /data/misc/lpnet 0700 system system
 
+
+on boot
     
-# Permissions for Camera
+    # Disable touch input booster // USELESS BATTERY DRAIN
+    write /sys/class/input_booster/level 0
+
+    # Audio I2C node for TFA amp
+    chmod 0660 /dev/i2c-20
+    chown audio audio /dev/i2c-20
+    chown bluetooth net_bt /dev/ttySAC0
+    chmod 0660 /dev/ttySAC0
+
+    # sem_daemon permission
+    chown system system /efs/sec_efs/ssp_data
+    chmod 0644 /efs/sec_efs/ssp_data
+
+    #MST HW Support
+    setprop ro.mst.support 1
+    
+    # Permissions for Bluetooth.
+    mkdir /efs/bluetooth 0775 radio system
+    chown radio system /efs/bluetooth
+    chmod 0775 /efs/bluetooth
+    setprop ro.bt.bdaddr_path /efs/bluetooth/bt_addr
+    chown bluetooth bluetooth ro.bt.bdaddr_path
+    chown radio bluetooth /efs/bluetooth/bt_addr
+    chmod 0640 /efs/bluetooth/bt_addr
+    chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
+    chmod 0660 /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
+
+    # basic network init
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
+    # set RLIMIT_NICE to allow priorities from 19 to -20
+    setrlimit 13 40 40
+    
+    # MTP permission
+    mkdir /dev/socket/mtp 0770 system mtp
+
+    # NPS permission
+    mkdir /dev/socket/nps 0770 system system
+
+    # MSP FactoryApp
+    mkdir /efs/FactoryApp 0775 system system
+
+    # Memory management.  Basic kernel parameters, and allow the high
+    # level system server to be able to adjust the kernel OOM driver
+    # parameters to match how it is managing things.
+    write /proc/sys/vm/overcommit_memory 1
+    write /proc/sys/vm/min_free_order_shift 4
+    chown root system /sys/module/lowmemorykiller/parameters/adj
+    chmod 0664 /sys/module/lowmemorykiller/parameters/adj
+    chown root system /sys/module/lowmemorykiller/parameters/minfree
+    chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
+
+    # Tweak background writeout
+    write /proc/sys/vm/dirty_expire_centisecs 200
+    #write /proc/sys/vm/dirty_background_ratio  5
+    #for dirty_background_ratio, just use kernel default value
+
+    # Switch Device
+    chown system radio /sys/class/sec/switch/usb_sel
+    chown system radio /sys/class/sec/switch/uart_sel
+    chown system radio /sys/class/sec/switch/uart_en
+    chown system radio /sys/class/sec/switch/otg_test
+    chown system radio /sys/class/sec/switch/apo_factory
+    
+    # Permissions for Camera
     mkdir /data/camera 0770 media system
     chown system radio /sys/class/camera/rear/rear_camfw
     chown system radio /sys/class/camera/rear/rear_camfw_full
@@ -149,7 +150,7 @@ write /sys/class/input_booster/level 0
     chown system radio /sys/class/camera/front/front_caminfo
     chown system radio /sys/class/camera/front/front_sensorid
 
-# Permissions for Fingerprint_sensor
+    # Permissions for Fingerprint_sensor
     chown system radio /sys/class/fingerprint/fingerprint/type_check
     chown system radio /sys/class/fingerprint/fingerprint/name
     chown system radio /sys/class/fingerprint/fingerprint/vendor
@@ -158,7 +159,7 @@ write /sys/class/input_booster/level 0
     chown system system /dev/esfp0
     chmod 0660 /dev/esfp0
 
-# Permissions for LCD
+    # Permissions for LCD
     chown system radio /sys/class/lcd/panel/manufacture_code
     chown system radio /sys/class/lcd/panel/lcd_type
     chown system system /sys/class/lcd/panel/siop_enable
@@ -171,8 +172,9 @@ write /sys/class/input_booster/level 0
     chown system system /sys/class/lcd/panel/dpui_dbg
     chown system system /sys/devices/svc/OCTA/SVC_OCTA
     
-# Sensors permissions
-# Accelerometer_sensor
+    ## Sensors permissions ##
+    
+ # Accelerometer_sensor
     chown system radio /sys/class/sensors/accelerometer_sensor/raw_data
     chown system radio /sys/class/sensors/accelerometer_sensor/calibration
     chown system radio /sys/class/sensors/accelerometer_sensor/reactive_alert
@@ -181,7 +183,7 @@ write /sys/class/input_booster/level 0
     chown system radio /sys/class/sensors/accelerometer_sensor/selftest
     chown system radio /sys/class/sensors/accelerometer_sensor/lowpassfilter
 
-# Proximity_sensor
+ # Proximity_sensor
     chown system radio /sys/class/sensors/proximity_sensor/state
     chown system radio /sys/class/sensors/proximity_sensor/raw_data
     chown system radio /sys/class/sensors/proximity_sensor/prox_avg
@@ -197,13 +199,13 @@ write /sys/class/input_booster/level 0
     chown system radio /sys/class/sensors/proximity_sensor/prox_trim
     chown system radio /sys/class/sensors/proximity_sensor/prox_probe
 
-# Light_sensor
+ # Light_sensor
     chown system radio /sys/class/sensors/light_sensor/lux
     chown system radio /sys/class/sensors/light_sensor/raw_data
     chown system radio /sys/class/sensors/light_sensor/vendor
     chown system radio /sys/class/sensors/light_sensor/name
 
-# Gyro_sensor
+ # Gyro_sensor
     chown system radio /sys/class/sensors/gyro_sensor/power_on
     chown system radio /sys/class/sensors/gyro_sensor/power_off
     chown system radio /sys/class/sensors/gyro_sensor/temperature
@@ -212,19 +214,19 @@ write /sys/class/input_booster/level 0
     chown system radio /sys/class/sensors/gyro_sensor/vendor
     chown system radio /sys/class/sensors/gyro_sensor/name
 
-# Barometer_sensor
+ # Barometer_sensor
     chown system radio /sys/class/sensors/barometer_sensor/sea_level_pressure
     chown system radio /sys/class/sensors/barometer_sensor/vendor
     chown system radio /sys/class/sensors/barometer_sensor/name
     chown system radio /sys/class/sensors/barometer_sensor/calibration
     chown system radio /sys/class/sensors/barometer_sensor/temperature
 
-# Magnetic_sensor
+ # Magnetic_sensor
     chown system radio /sys/class/sensors/magnetic_sensor/raw_data
     chown system radio /sys/class/sensors/magnetic_sensor/vendor
     chown system radio /sys/class/sensors/magnetic_sensor/name
 
-# SensorHub
+ # SensorHub
     chown system radio /sys/class/sensors/ssp_sensor/enable
     chown system radio /sys/class/sensors/ssp_sensor/mcu_rev
     chown system radio /sys/class/sensors/ssp_sensor/mcu_name
@@ -235,7 +237,7 @@ write /sys/class/input_booster/level 0
     chown system radio /sys/class/sensors/ssp_sensor/ori_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/sensor_dump
 
-# Sensorhub IIO
+ # Sensorhub IIO
     chown system radio /sys/class/sensors/ssp_sensor/accel_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/rot_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/game_rot_poll_delay
@@ -266,10 +268,13 @@ write /sys/class/input_booster/level 0
     chown system radio /sys/class/sec/sec_barcode_emul/barcode_led_status
     chown system radio /sys/class/sec/sec_barcode_emul/barcode_ver_check
 
-#Meta event
+ #Meta event
     chown system radio /sys/class/sensors/sensor_dev/flush
-
-# Permission for USB SELECT
+    
+    ## End of sensors permissions ##
+    
+    
+    # Permission for USB SELECT
     chown system system /sys/class/android_usb/android0/enable
     chmod 0660 /sys/class/android_usb/android0/enable
     chown system system /sys/class/android_usb/android0/idVendor
@@ -283,7 +288,7 @@ write /sys/class/input_booster/level 0
     chown system system /sys/class/android_usb/android0/bDeviceClass
     chmod 0660 /sys/class/android_usb/android0/bDeviceClass
 
-# Permissions for SVC LED
+    # Permissions for SVC LED
     chown system system /sys/class/sec/led/led_blink
     chown system system /sys/class/sec/led/led_r
     chown system system /sys/class/sec/led/led_g
@@ -291,13 +296,12 @@ write /sys/class/input_booster/level 0
     chown system system /sys/class/sec/led/led_lowpower
     chown system system /sys/class/sec/led/led_pattern
 
-# Permissions for TouchScreen
+    # Permissions for TouchScreen
     chown system radio /sys/class/sec/tsp/cmd
     chown system system /sys/class/sec/tsp/input/enabled
-
     chmod 0660 /sys/class/sec/tsp/input/enabled
 
-#permission for TSP, Touchkey
+    #permission for TSP, Touchkey
     chown system radio /sys/class/sec/tsp/cmd
     chmod 0660 /sys/class/sec/tsp/input/enabled
     chown system system /sys/class/sec/tsp/input/enabled
@@ -317,31 +321,37 @@ write /sys/class/input_booster/level 0
     chown system radio /sys/class/sec/sec_touchkey/touchkey_light_version
     chown system radio /sys/class/sec/sec_touchkey/touchkey_light_id_compare
     
-# Sensorhub service
-service sensorhubservice /system/bin/sensorhubservice
+    # Sensorhub service
+    service sensorhubservice /system/bin/sensorhubservice
     class main
     user system
     group input
-
-# IO stats Deamon
-service iod /system/bin/iod
-    user system
-    group shell
-    class main
-    oneshot
-    disabled
-
-on property:sys.boot_completed=1
-    pdp result
-    start iod
-
-# Permission for Vibrator
+    
+    # Permission for Vibrator
     chown system system /sys/class/timed_output/vibrator/enable
 
-# Permission for Wifi firmware_path
+    # Permission for Wifi firmware_path
     chown wifi wifi /sys/module/dhd/parameters/firmware_path
+    
+    # Permissions for System LSI NFC
+       # NFC : Permissions for NFC
+    chmod 0660 /dev/sec-nfc
+    chown nfc nfc /dev/sec-nfc
+       # Permissions for S.LSI ESE
+    chmod 0660 /dev/p3
+    chown system system /dev/p3
+    
+    # NFC
+    mkdir /data/nfc 0700 nfc nfc
+    mkdir /data/nfc/param 0700 nfc nfc
+    mkdir /data/bcmnfc 0700 nfc nfc
+    mkdir /data/bcmnfc/param 0700 nfc nfc
+    
+    # MST/NFC Switch
+    # chown spay system /dev/mst_ctrl
+    chmod 0660 /dev/mst_ctrl
 
-# Permission for Mobicore
+    # Permission for Mobicore
     chown radio system /dev/mobicore-user
     chown system system /dev/mobicore
     chown system system /dev/s5p-smem
@@ -349,21 +359,21 @@ on property:sys.boot_completed=1
     chmod 0666 /dev/mobicore-user
     chmod 0700 /dev/mobicore
     chmod 0660 /dev/s5p-smem
-
-on nonencrypted
+    
+    on nonencrypted
     mkdir /data/misc/mcRegistry 0775 system system
 
-on property:vold.decrypt=trigger_restart_framework
+    on property:vold.decrypt=trigger_restart_framework
     mkdir /data/misc/mcRegistry 0775 system system
 
-service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF000000000000000000000001.drbin -r /system/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin -r /system/app/mcRegistry/ffffffffd00000000000000000000016.tlbin
+    service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF000000000000000000000001.drbin -r /system/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin -r /system/app/mcRegistry/ffffffffd00000000000000000000016.tlbin
     class core
     user system
     group system
     disabled
-    
+
     on property:init.svc.bootanim=stopped
-# set property for touchkey light voltage table
+    # set property for touchkey light voltage table
     chown system system /efs/FactoryApp/tkey_light_version
     chown system system /efs/FactoryApp/tkey_light_crc
     chown system system /efs/FactoryApp/tkey_light0
@@ -383,110 +393,48 @@ service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF0000000000000
     chown system system /efs/FactoryApp/tkey_light14
     chown system system /efs/FactoryApp/tkey_light15
     
-    # Permissions for System LSI NFC
-# NFC : Permissions for NFC
-    chmod 0660 /dev/sec-nfc
-    chown nfc nfc /dev/sec-nfc
-# Permissions for S.LSI ESE
-    chmod 0660 /dev/p3
-    chown system system /dev/p3
+    # IO stats Deamon
+    service iod /system/bin/iod
+    user system
+    group shell
+    class main
+    oneshot
+    disabled
+
+    on property:sys.boot_completed=1
+    pdp result
+    start iod
     
-    # NFC
-    mkdir /data/nfc 0700 nfc nfc
-    mkdir /data/nfc/param 0700 nfc nfc
-    mkdir /data/bcmnfc 0700 nfc nfc
-    mkdir /data/bcmnfc/param 0700 nfc nfc
-
-    # Samsung Pay
-    # mkdir /efs/pfw_data 0760 spay spay
-
-    # MST/NFC Switch
-    # chown spay system /dev/mst_ctrl
-    chmod 0660 /dev/mst_ctrl
-    
-
-# Activate Background Compaction
+    # Activate Background Compaction
 on property:sys.sysctl.compact_memory=1
     setprop sys.sysctl.compact_memory 0
     start compact_memory
 
-service compact_memory /sbin/bgcompact
+    service compact_memory /sbin/bgcompact
     user root
     seclabel u:r:sswap:s0
     oneshot
     disabled
 
-
-# "tcp_default_init_rwnd" Is too long!
+    # "tcp_default_init_rwnd" Is too long!
 on property:sys.sysctl.tcp_def_init_rwnd=*
     write /proc/sys/net/ipv4/tcp_default_init_rwnd ${sys.sysctl.tcp_def_init_rwnd}
-
     
-    # LPM
-on property:ro.bootmode=charger
-   mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/SYSTEM /system wait ro
-
-on property:ro.bootmode=charger
-    wait /dev/block/platform/13540000.dwmmc0/by-name/EFS
-    mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/EFS /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit
-
-service charger /charger
-    class charger
-    critical
-    seclabel u:r:charger:s0
-    
-service healthd /sbin/healthd
-    class core
-    critical
-    seclabel u:r:healthd:s0
-    group root system wakelock
-
-    
-
-on property:init.svc.zygote=restarting
-    restart bootchecker
-
-# strongSwan VPN
-service charon /system/bin/charon
-    class main
-    socket charon stream 600 system system
-    # charon will setuid to vpn after getting necessary resources.
-    group vpn net_admin inet shell
-    disabled
-    oneshot
-    
-# Bluetooth
+    # Bluetooth
 on property:wc_transport.start_hci=true
     start start_hci_filter
 
-service battery_charger /sbin/healthd -c
+    service battery_charger /sbin/healthd -c
     class charger
     critical
     seclabel u:r:healthd:s0
 
-
 on property:wc_transport.start_hci=false
     stop start_hci_filter
-
-service start_hci_filter /system/bin/wcnss_filter
+    
+    service start_hci_filter /system/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth qcom_diag
     disabled
-    
-service vpnclientd /system/bin/vpnclientd
-    socket vpnclientd seqpacket 0600 system system
-    user system
-    group system net_admin inet net_raw
-    disabled
-on property:service.vpnclientd.enable=1
-    start vpnclientd
-on property:service.vpnclientd.enable=0
-    stop vpnclientd
-    
-on property:sys.sf.restart=1
-    restart surfaceflinger
-    
-    
-
-
+   
