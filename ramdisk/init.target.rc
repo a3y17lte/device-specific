@@ -360,10 +360,11 @@ on boot
     chmod 0700 /dev/mobicore
     chmod 0660 /dev/s5p-smem
     
-    on nonencrypted
+on nonencrypted
     mkdir /data/misc/mcRegistry 0775 system system
 
-    on property:vold.decrypt=trigger_restart_framework
+
+on property:vold.decrypt=trigger_restart_framework
     mkdir /data/misc/mcRegistry 0775 system system
 
     service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF000000000000000000000001.drbin -r /system/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin -r /system/app/mcRegistry/ffffffffd00000000000000000000016.tlbin
@@ -371,6 +372,7 @@ on boot
     user system
     group system
     disabled
+
 
     on property:init.svc.bootanim=stopped
     # set property for touchkey light voltage table
@@ -392,6 +394,8 @@ on boot
     chown system system /efs/FactoryApp/tkey_light13
     chown system system /efs/FactoryApp/tkey_light14
     chown system system /efs/FactoryApp/tkey_light15
+
+
     
     # IO stats Deamon
     service iod /system/bin/iod
@@ -401,9 +405,10 @@ on boot
     oneshot
     disabled
 
-    on property:sys.boot_completed=1
+on property:sys.boot_completed=1
     pdp result
     start iod
+
     
     # Activate Background Compaction
 on property:sys.sysctl.compact_memory=1
@@ -416,9 +421,11 @@ on property:sys.sysctl.compact_memory=1
     oneshot
     disabled
 
+
     # "tcp_default_init_rwnd" Is too long!
 on property:sys.sysctl.tcp_def_init_rwnd=*
     write /proc/sys/net/ipv4/tcp_default_init_rwnd ${sys.sysctl.tcp_def_init_rwnd}
+
     
     # Bluetooth
 on property:wc_transport.start_hci=true
@@ -429,6 +436,7 @@ on property:wc_transport.start_hci=true
     critical
     seclabel u:r:healthd:s0
 
+
 on property:wc_transport.start_hci=false
     stop start_hci_filter
     
@@ -437,4 +445,3 @@ on property:wc_transport.start_hci=false
     user bluetooth
     group bluetooth qcom_diag
     disabled
-   

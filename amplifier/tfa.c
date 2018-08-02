@@ -293,3 +293,4 @@ void tfa_device_close(tfa_device_t *tfa_dev) {
         free(tfa_dev);
     }
 }
+

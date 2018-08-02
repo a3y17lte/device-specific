@@ -84,3 +84,4 @@ tfa_device_t * tfa_device_open();
 void tfa_device_close(tfa_device_t *tfa_dev);
 
 #endif // TFA_H
+

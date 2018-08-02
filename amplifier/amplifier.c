@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2017 Christopher N. Hesse <raymanfx@gmail.com>
  *
@@ -208,3 +209,4 @@ amplifier_module_t HAL_MODULE_INFO_SYM = {
         .methods = &hal_module_methods,
     },
 };
+
