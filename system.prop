@@ -1,0 +1,23 @@
+# ro.product.first_api_level indicates the first api level the device has commercially launched on.
+ro.product.first_api_level=23
+
+# DPI
+ro.sf.lcd_density=360
+
+# Sdcardfs
+ro.sys.sdcardfs=false
+
+# Bluetooth workaround:
+# The new CAF code defaults to MCT HAL
+qcom.bluetooth.soc=rome
+
+# Nfc
+ro.nfc.port=I2C
+ro.nfc.sec_hal=true
+
+# Wifi
+net.tethering.noprovisioning=true
+
+# Audio
+audio_hal.disable_two_mic=false
+
