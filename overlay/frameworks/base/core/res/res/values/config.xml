@@ -50,10 +50,7 @@
 
     <!-- If this is true, the screen will fade off. -->
     <bool name="config_animateScreenLights">true</bool>
-    
-    <!-- Enable double tap to wake gesture -->
-    <bool name="config_supportDoubleTapWake">true</bool>
-    
+        
     <!-- If true, the display will be shifted around in ambient mode. -->
     <bool name="config_enableBurnInProtection">true</bool>
         
@@ -68,9 +65,6 @@
     <!-- Control whether the always on display mode is available. This should only be enabled on
          devices where the display has be tuned to be power efficient in DOZE and/or DOZE_SUSPEND
          states. -->
-    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
-    <!-- If true, the doze component is not started until after the screen has been
-        turned off and the screen off animation has been performed. -->
     <bool name="config_dozeAfterScreenOff">true</bool>
 
     <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently

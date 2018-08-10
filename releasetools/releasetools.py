@@ -43,17 +43,20 @@ def FullOTA_InstallBegin(info):
     info.script.AppendExtra('ui_print("                Thanks for installing !             ");');
     info.script.AppendExtra('ui_print("    Source code available on GitHub : @a3y17lte     ");');
     info.script.AppendExtra('ui_print("                                                    ");');
-    info.script.AppendExtra('ui_print("   --> Maintainer:                                  ");');
-    info.script.AppendExtra('ui_print("                   __  __    ___                    ");');
-    info.script.AppendExtra('ui_print("                  |  \/  |__| __|  _                ");');
-    info.script.AppendExtra('ui_print("                  | |\/| / _| _| || |               ");');
-    info.script.AppendExtra('ui_print("                  |_|  |_\__|_| \_, |               ");');
-    info.script.AppendExtra('ui_print("                               |__/                 ");');
+    info.script.AppendExtra('ui_print("    --> Maintainer:                                 ");');
+    info.script.AppendExtra('ui_print("                    __  __    ___                   ");');
+    info.script.AppendExtra('ui_print("                   |  \/  |__| __|  _               ");');
+    info.script.AppendExtra('ui_print("                   | |\/| / _| _| || |              ");');
+    info.script.AppendExtra('ui_print("                   |_|  |_\__|_| \_, |              ");');
+    info.script.AppendExtra('ui_print("                                 |__/               ");');
     info.script.AppendExtra('ui_print("                                                    ");');
-    info.script.AppendExtra('ui_print("   --> Device: Samsung Galaxy A3 2017               ");');
+    info.script.AppendExtra('ui_print("    --> Device: Samsung Galaxy A3 2017              ");');
     info.script.AppendExtra('ui_print("                                                    ");');
     info.script.AppendExtra('ui_print("                                                    ");');
-						
+
 def FullOTA_InstallEnd(info):
-    # run installend scripts
-    info.script.AppendExtra('assert(run_program("/tmp/install/bin/nfc_scripts.sh", "installend") == 0);')
+     # run installend scripts
+     info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM", "/system", "");')
+     info.script.AppendExtra('assert(run_program("/tmp/install/bin/nfc_scripts.sh", "installend") == 0);')
+     info.script.AppendExtra('unmount("/system");')
+
