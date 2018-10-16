@@ -1,9 +1,9 @@
 
 ```
-Copyright (C) 2017 The LineageOS Project
-Copyright (C) 2017 McFy  <g.matthieu49@gmail.com>
-Copyright (C) 2017 Valera Chigir <valera1978@tut.by>
-Copyright (C) 2017 Siddhant Naik
+Copyright (C) 2018 The LineageOS Project
+Copyright (C) 2018 McFy  <g.matthieu49@gmail.com>
+Copyright (C) 2018 Valera Chigir <valera1978@tut.by>
+Copyright (C) 2018 Siddhant Naik
 ```
 
 Device configuration for the Samsung Galaxy A3 2017 (A320F/FL/xx)
@@ -30,7 +30,7 @@ Battery | Li-Ion 2350mAh battery
 Display | 720 x 1080 pixels, 4.7", SUPER AMOLED 
 Camera  | 13 MP rear cam and 8 MP front cam
 Other capabilities | NFC, Audio stream
-Sensors | Accelerometer, Proximity, FingerPrint, Gyroscope, compass, barometer
+Sensors | Accelerometer, Proximity, FingerPrint (front mounted), Gyroscope, compass, barometer
 
 ## Device Preview
 
